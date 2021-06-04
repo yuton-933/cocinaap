@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_034008) do
+ActiveRecord::Schema.define(version: 2021_06_03_054318) do
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "title", null: false
+    t.float "protein", null: false
+    t.float "fat", null: false
+    t.float "carbs", null: false
+    t.integer "cost", null: false
+    t.boolean "allergen", default: false
+    t.boolean "meat", default: false
+    t.boolean "dairy_egg", default: false
+    t.boolean "seafood", default: false
+    t.boolean "other_animal", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
