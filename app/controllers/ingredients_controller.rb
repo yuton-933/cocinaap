@@ -19,6 +19,10 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def index
+    @ingredients = Ingredient.all.order('created_at ASC')
+  end  
+
   def ingredient_params
     params.require(:ingredient).permit(
         :title, :meat, :dairy_egg, :seafood, :other_animal, 

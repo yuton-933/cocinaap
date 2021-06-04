@@ -1,0 +1,31 @@
+<div class="main">
+  <div class="form-group text-center mt-4">
+    <h2 class="text-secondary">材料一覧</h2>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">＃</th>
+        <th scope="col">材料名</th>
+        <th scope="col">p</th>
+        <th scope="col">f</th>
+        <th scope="col">c</th>
+        <th scope="col">価格</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <% @ingredients.each do |i| %>
+        <tr>
+          <th scope="row"><%= i.id %></th>
+          <td><%= i.title %></td>
+          <td><%= i.protein %>g /100g</td>
+          <td><%= i.fat %>g /100g</td>
+          <td><%= i.carbs %>g /100g</td>
+          <td>¥<%= i.cost %> /100g</td>
+          <%# TODO: フードタイプの表示もする idea：HelperメソッドにtrueならIconを出すようにメソッド  %>
+        </tr>
+      <% end %>  
+    </tbody>
+  </table>
+</div>

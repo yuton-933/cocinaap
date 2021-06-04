@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   #ingredients
-  resources :ingredients, only: %i(new create) do
+  resources :ingredients, only: %i(new create index) do
   end
 end

@@ -3,6 +3,7 @@
     <div class="form-group text-center mt-4">
       <h2 class="text-secondary">材料登録</h2>
     </div>
+    <%# TODO: 名前が一緒の時、空の時にエラー吐くようにする idea：redirectをshowに送る→なければエラー %>
     <div class="form-wrap m-2">
       <%= form_with model: @ingredient do |f| %>
         <div class="form-group text-center w-50 mx-auto mt-2">
