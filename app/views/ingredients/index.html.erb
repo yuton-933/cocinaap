@@ -11,7 +11,7 @@
         <th scope="col">f</th>
         <th scope="col">c</th>
         <th scope="col">価格</th>
-        
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +23,14 @@
           <td><%= i.fat %>g /100g</td>
           <td><%= i.carbs %>g /100g</td>
           <td>¥<%= i.cost %> /100g</td>
+          <td class="d-flex justify-content-between">
+            <%= link_to edit_ingredient_path(i) do %>
+              <i class="far fa-edit mr-2"></i>
+            <% end %>
+            <%= link_to ingredient_path(i), method: :delete do %>
+              <i class="fa fa-trash-alt mr-2"></i>
+            <% end %>
+          </td>
           <%# TODO: フードタイプの表示もする idea：HelperメソッドにtrueならIconを出すようにメソッド  %>
         </tr>
       <% end %>  
