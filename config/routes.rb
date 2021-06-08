@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   #ingredients
   resources :ingredients, only: %i(new create index destroy edit update) do
   end
+
+  # dishes
+  resource  :dishes, only: %i(new create index destroy edit update) do
 end
