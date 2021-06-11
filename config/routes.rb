@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   # dishes
   resources :dishes do
-    resource :ingredients_in_dishes
+    resources :ingredients_in_dishes, only: %i(new create destroy edit update) 
   end  
 end

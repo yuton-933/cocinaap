@@ -5,7 +5,6 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">＃</th>
         <th scope="col">料理タイトル</th>
         <th scope="col">下処理時間</th>
         <th scope="col">調理時間</th>
@@ -17,8 +16,11 @@
     <tbody>
       <% @dishes.each do |d| %>
         <tr>
-          <th scope="row"><%= d.id %></th>
-          <td><%= d.title %></td>
+          <th scope="row">
+            <%= link_to dish_path(d) do %>
+              <%= d.title %>
+            <% end %>
+          </th>
           <td><%= d.prep_time %>分</td>
           <td><%= d.cook_time %>分</td>
           <td><%= d.sit_time %>分</td>
