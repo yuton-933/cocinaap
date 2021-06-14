@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_054318) do
+ActiveRecord::Schema.define(version: 2021_06_08_025840) do
+
+  create_table "dishes", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "prep_time"
+    t.integer "cook_time", null: false
+    t.integer "sit_time"
+    t.integer "yield", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.string "title", null: false
@@ -25,6 +35,17 @@ ActiveRecord::Schema.define(version: 2021_06_03_054318) do
     t.boolean "other_animal", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ingredients_in_dishes", force: :cascade do |t|
+    t.integer "ingredient_id", null: false
+    t.integer "dish_id", null: false
+    t.string "unit", null: false
+    t.float "gram", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_ingredients_in_dishes_on_dish_id"
+    t.index ["ingredient_id"], name: "index_ingredients_in_dishes_on_ingredient_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +66,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_054318) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ingredients_in_dishes", "dishes"
+  add_foreign_key "ingredients_in_dishes", "ingredients"
 end
