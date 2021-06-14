@@ -18,10 +18,11 @@
           <td><%= d.unit %></td>
           <td><%= d.gram %>g</td>
           <td class="d-flex justify-content-between">
-            <%= link_to edit_dish_path(d) do %>
+            <%= link_to edit_dish_ingredients_in_dish_path(id: d.id, dish_id: d.dish_id) do %> 
               <i class="far fa-edit mr-2"></i>
             <% end %>
-            <%= link_to dish_ingredients_in_dish_path(d), method: :delete do %>
+            <%# ↓↓↓ なぜかparamsがぐちゃぐちゃに渡されるので指定してる %>
+            <%= link_to dish_ingredients_in_dish_path(id: d.id, dish_id: d.dish_id), method: :delete do %> 
               <i class="fa fa-trash-alt mr-2"></i>
             <% end %>
           </td>

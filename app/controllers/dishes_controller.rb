@@ -1,5 +1,6 @@
 class DishesController < ApplicationController
 
+  require 'byebug'
   before_action :set_dish, only: %i(destroy edit update show) 
 
   def new
@@ -9,7 +10,7 @@ class DishesController < ApplicationController
   def create
     @dish = Dish.new(dish_params)
     if @dish.present?
-      # byebug
+      
       @dish.save
       redirect_to dishes_path
       flash[:notice] = "料理を登録しました"
@@ -56,7 +57,7 @@ class DishesController < ApplicationController
       )
     end
 
-  def set_dish
-    @dish = Dish.find_by(id: params[:id])
-  end
+    def set_dish
+      @dish = Dish.find_by(id: params[:id])
+    end
 end

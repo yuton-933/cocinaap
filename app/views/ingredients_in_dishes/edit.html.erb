@@ -5,7 +5,7 @@
     </div>
     <%# TODO: 名前が一緒の時、空の時にエラー吐くようにする idea：redirectをshowに送る→なければエラー %>
     <div class="form-wrap m-2">
-      <%= form_with model: @ingredients_in_dish, url: dish_ingredients_in_dishes_path, local: true do |f| %>
+      <%= form_with model: @ingredients_in_dish, url: dish_ingredients_in_dish_path, method: :patch do |f| %>
         <div class="form-group text-center w-75 mx-auto mt-2">
           <%= f.collection_select :ingredient_id, Ingredient.all, :id, :title, :prompt =>"材料を選択" %>
         </div>
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="actions mt-4">
-          <%= f.submit "登録", class: "btn btn-primary d-block ms-auto" %>
+          <%= f.submit "更新", class: "btn btn-primary d-block ms-auto" %>
         </div>
       <% end %>
     </div>
