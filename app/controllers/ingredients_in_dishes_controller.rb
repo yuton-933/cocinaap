@@ -22,21 +22,7 @@ class IngredientsInDishesController < ApplicationController
     ensure
       redirect_to dishes_path
   end  
-
-  def edit 
-  end
   
-  def update
-    byebug
-    @ingredients_in_dish.update(ingredients_in_dish_params)
-    flash[:notice] = "データを更新しました" 
-    redirect_to dishes_path 
-    rescue
-      render 'edit'
-      flash[:alert] = "データの更新に失敗しました"
-  end
-  
-
 private
   def ingredients_in_dish_params
     params.permit(
